@@ -36,7 +36,7 @@ app.use('/:tenantUrlName/:locale/admin', (req, res) => {
 });
 app.use(`/${settings.dftDashboardUrlname}/`, (req, res) => {
 	res.redirect(
-		`/${settings.dftDashboardUrlname}/${settings.dftLanguageAndRegion}/admin`
+		`/${settings.dftDashboardUrlname}/${settings.dftLanguageAndRegion}/admin/login`
 	);
 });
 app.get(
