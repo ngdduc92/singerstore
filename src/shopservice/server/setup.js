@@ -319,7 +319,6 @@ const addOwnerTenant = async (db, email) => {
 			await addThemeSettings(db, ownerTenant);
 			await addCategories(db, ownerTenant);
 			await addEmailSettings(db);
-			await addDiscountTypes(db, ownerTenant);
 		}
 	}
 };
