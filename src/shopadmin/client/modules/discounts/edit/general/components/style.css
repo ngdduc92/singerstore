@@ -1,0 +1,27 @@
+.button {
+  margin-left: 12px;
+}
+
+.innerBox {
+  padding: 30px 30px 50px 30px;
+}
+
+.error {
+  color: rgb(244, 67, 54);
+}
+
+.lineBottom {
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0 0 15px 0;
+}
+
+.lineTop {
+  padding: 0 0 15px 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 15px 0;
+}
+
+.nopadding {
+  padding: 0 !important;
+}

@@ -1,0 +1,70 @@
+.button {
+  margin-left: 12px;
+}
+
+.innerBox {
+  padding: 30px 30px 50px 30px;
+}
+
+.error {
+  color: rgb(244, 67, 54);
+}
+
+.lineBottom {
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0 0 15px 0;
+}
+
+.lineTop {
+  padding: 0 0 15px 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 15px 0;
+}
+
+.relatedProducts {
+  margin: 15px 0;
+}
+
+.relatedProduct {
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.relatedProduct:last-child {
+  border-bottom: none;
+}
+
+.relatedProductImage {
+  min-width: 120px;
+}
+.relatedProductText {
+  flex-grow: 1;
+}
+.relatedProductActions {
+  min-width: 60px;
+  text-align: center;
+}
+
+.relatedProductText a {
+  color: #008eb4;
+  text-decoration: none;
+}
+
+.relatedProductText div {
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 4px;
+}
+
+.relatedProductImage img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.relatedProductDisabled .relatedProductImage,
+.relatedProductDisabled .relatedProductText {
+  opacity: 0.25;
+}

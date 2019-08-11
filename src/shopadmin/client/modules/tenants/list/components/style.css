@@ -1,0 +1,27 @@
+.tenantName {
+  display: block;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.tenantName small {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.tenantActive {
+  color: rgb(0,142,180);
+}
+
+.tenantInactive {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.innerItem {
+  padding: 0 16px;
+}
+
+.more {
+  padding: 40px 0;
+  text-align: center;
+}

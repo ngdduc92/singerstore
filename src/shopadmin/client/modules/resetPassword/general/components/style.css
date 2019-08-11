@@ -1,0 +1,51 @@
+.button {
+  margin-left: 12px;
+}
+
+.innerBox {
+  padding: 30px 30px 50px 30px;
+}
+
+.error {
+  color: rgb(244, 67, 54);
+}
+
+.resetPasswordBox {
+  width: 500px;
+  background: #fff;
+  padding: 40px 60px;
+  min-height: 460px;
+  margin: auto;
+}
+
+.resetPasswordTitle {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.resetPasswordSuccessBox {
+  width: 500px;
+  background: #fff;
+  padding: 40px 60px;
+  min-height: 100px;
+  margin: auto;
+}
+
+.resetPasswordInputs input {
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.resetPasswordBtn {
+  text-transform: uppercase;
+  margin-top: 25px;
+}
+
+.response {
+  color: red;
+  text-align: center;
+}

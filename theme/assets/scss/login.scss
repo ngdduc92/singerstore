@@ -1,0 +1,147 @@
+$background-color: white;
+$text-color: #383838;
+$link-color: #E09D00;
+$border-color: #E8E8E8;
+$lg-marign-bottom: 10px;
+
+%login-content{
+	width: 100%;
+	margin-bottom: $lg-marign-bottom;
+	height: 30px;
+}
+.login-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: opacity 500ms;
+	visibility: visible;
+	opacity: 1;
+	z-index: 2000;
+}
+
+.login-box {
+	width: 400px;
+	background: $background-color;
+	position: fixed;
+	transform: translate(-50%,-50%);
+	padding: 40px 60px;
+	top: 50%;
+    left: 50%;
+    box-shadow: 2px 2px 1px 0 rgba(0,0,0,.2);
+    min-height: 460px;
+
+	h1 {
+		text-align: center;
+		font-size: 24px;
+		padding-bottom: 20px;
+	    margin: 0;
+	    color: $text-color;
+	    text-transform: uppercase;
+	}
+
+	a {
+		color: $link-color;
+	}
+	.login-inputs {
+		input {
+			@extend %login-content;
+			border: 1px solid $border-color;
+			text-align: left;
+			padding: 5px;
+		}
+	}
+
+	.login-forgot {
+		@extend %login-content;
+		a {
+			float: right;
+		}
+	}	
+
+	.sign-up {
+		@extend %login-content;
+		text-align: center;
+		margin-bottom: 0;
+	}	
+	
+	h2 {
+	   width: 100%; 
+	   text-align: center; 
+	   border-bottom: 1px solid $border-color; 
+	   line-height: 0.1em;
+	   margin: 5px 0 15px; 
+	} 
+
+	h2 span { 
+	    background: $background-color; 
+	    padding: 0 10px;
+	    font-size: 12px;
+    	color: $text-color;
+	}
+
+	button {
+		@extend %login-content;
+		border: none;
+		color: $background-color;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 14px;
+		text-align: center;
+    	padding: 5px;
+	}
+
+	.login-btn {
+		background-color: $link-color;
+		text-transform: uppercase;
+	}
+
+	.login-btn:hover {
+	  	background-color: #F9BB2B;
+	}
+
+	.login-fb-btn {
+		background-color: #365899;
+		text-transform: uppercase;
+	}
+
+	.fb-icon {
+		float: left;
+		font-size: 24px;
+		line-height: 0.7em;
+		padding-left: 5px;
+		font-weight: normal;
+	}
+
+	.logo {
+		width: 100%;
+		img {
+			margin: 0px auto 20px;
+			display: block;
+		}
+	}
+
+	.terms-service-warning {
+		font-size: small;
+    	text-align: center;
+    	margin-bottom: $lg-marign-bottom;
+    }
+
+    .response {
+		color: red;
+		text-align: center;
+    }
+
+    .register-success-inform {
+    	text-align: center;
+	    margin-top: 50%;
+    }
+
+    .reset-password-warning {
+    	font-size: small;
+    	text-align: justify;
+    	margin-bottom: $lg-marign-bottom;
+    }
+}

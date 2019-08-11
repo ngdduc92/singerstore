@@ -1,0 +1,353 @@
+[{
+  "section": "Footer",
+  "key": "footer_logo_url",
+  "type": "image",
+  "label": "Logo"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "list_image_max_height",
+  "type": "number",
+  "label": "Chiều cao lớn nhất của hình ảnh"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "button_addtocart_bg",
+  "type": "color",
+  "label": "Nút thêm vào giỏ hàng. Màu nền."
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "button_addtocart_color",
+  "type": "color",
+  "label": "Nút thêm vào giỏ hàng. Màu chữ."
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "button_addtocart_text",
+  "type": "string",
+  "label": "Nút thêm vào giỏ hàng. Chữ."
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "button_loadmore_bg",
+  "type": "color",
+  "label": "Nút xem thêm. Màu nền."
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "button_loadmore_color",
+  "type": "color",
+  "label": "Nút xem thêm. Màu chữ."
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "button_loadmore_text",
+  "type": "string",
+  "label": "Nút xem thêm. Chữ."
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "list_price_color",
+  "type": "color",
+  "label": "Màu giá"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "list_price_size",
+  "type": "number",
+  "label": "Kích cỡ chữ của giá (px)"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "details_price_color",
+  "type": "color",
+  "label": "Màu giá"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "details_price_size",
+  "type": "number",
+  "label": "Kích cỡ chữ của giá (px)"
+}, {
+  "section": "Header",
+  "key": "search_placeholder",
+  "type": "string",
+  "label": "Gợi ý tìm kiếm"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "show_product_filter",
+  "type": "boolean",
+  "label": "Hiển thị lọc sản phẩm"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "show_product_breadcrumbs",
+  "type": "boolean",
+  "label": "Hiển thị link phân cấp"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "show_category_breadcrumbs",
+  "type": "boolean",
+  "label": "Hiển thị link phân cấp"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "show_discount_countdown",
+  "type": "boolean",
+  "label": "Hiển thị đếm ngược giảm giá"
+}, {
+  "section": "Trang chủ",
+  "key": "home_products_title",
+  "type": "string",
+  "label": "Tiêu đề sản phẩm nổi bật"
+}, {
+  "section": "Trang chủ",
+  "key": "home_products_sort",
+  "type": "string",
+  "label": "Sắp xếp sản phẩm nổi bật bởi"
+}, {
+  "section": "Trang chủ",
+  "key": "home_products_sku",
+  "type": "string",
+  "label": "SKUs sản phẩm nổi bật"
+}, {
+  "section": "Trang chủ",
+  "key": "home_products_limit",
+  "type": "number",
+  "label": "Số lượng sản phẩm nổi bật"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "hide_footer_on_checkout",
+  "type": "boolean",
+  "label": "Ẩn footer trên trang đặt hàng"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "checkoutInputClass",
+  "type": "string",
+  "label": "Text input class"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "checkoutButtonClass",
+  "type": "string",
+  "label": "Button class"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "checkoutEditButtonClass",
+  "type": "string",
+  "label": "Edit button class"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "sortNewest",
+  "type": "string",
+  "label": "Sắp xếp theo mới nhất (ngăn cách bởi dấu phẩy)"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "sortPriceLow",
+  "type": "string",
+  "label": "Sắp xếp theo giá thấp (ngăn cách bởi dấu phẩy)"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "sortPriceHigh",
+  "type": "string",
+  "label": "Sắp xếp theo giá cao (ngăn cách bởi dấu phẩy)"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "product_thumbnail_position",
+  "type": "string",
+  "label": "Vị trí ảnh thumbnail",
+  "options": [{
+      "label": "Trên",
+      "value": "top"
+    },
+    {
+      "label": "Phải",
+      "value": "right"
+    },
+    {
+      "label": "Dưới",
+      "value": "bottom"
+    },
+    {
+      "label": "Trái",
+      "value": "left"
+    }
+  ]
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "disqus_shortname",
+  "type": "string",
+  "label": "DISQUS tên ngắn"
+}, {
+  "section": "Footer",
+  "key": "footer_about",
+  "type": "string",
+  "label": "Mô tả ngắn"
+}, {
+  "section": "Footer",
+  "key": "footer_menu_1_title",
+  "type": "string",
+  "label": "Tiêu đề menu 1"
+}, {
+  "section": "Footer",
+  "key": "footer_menu_2_title",
+  "type": "string",
+  "label": "Tiêu đề menu 2"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "maxCartItemQty",
+  "type": "number",
+  "label": "Số lượng lớn nhất"
+}, {
+  "section": "Giỏ hàng và đặt hàng",
+  "key": "cartThumbnailWidth",
+  "type": "number",
+  "label": "Image width (px)"
+}, {
+  "section": "Danh sách sản phẩm",
+  "key": "listThumbnailWidth",
+  "type": "number",
+  "label": "Chiều ngang của ảnh (px)"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "previewThumbnailWidth",
+  "type": "number",
+  "label": "Chiều ngang của ảnh thumbnail (px)"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "bigThumbnailWidth",
+  "type": "number",
+  "label": "Chiều ngang của ảnh (px)"
+}, {
+  "section": "Trang chủ",
+  "key": "category_list_thumbnail_width",
+  "type": "number",
+  "label": "Danh sách loại sản phẩm. Chiều ngang của ảnh (px)"
+}, {
+  "section": "Footer",
+  "key": "footer_menu_1_items",
+  "type": "array",
+  "label": "Menu 1 (đường dẫn)",
+  "properties": [{
+    "key": "text",
+    "type": "string",
+    "label": "Chữ hiển thị"
+  }, {
+    "key": "url",
+    "type": "string",
+    "label": "Đường dẫn"
+  }]
+}, {
+  "section": "Footer",
+  "key": "footer_menu_2_items",
+  "type": "array",
+  "label": "Menu 2 (links)",
+  "properties": [{
+    "key": "text",
+    "type": "string",
+    "label": "Chữ hiển thị"
+  }, {
+    "key": "url",
+    "type": "string",
+    "label": "Đường dẫn"
+  }]
+}, {
+  "section": "Footer",
+  "key": "footer_social",
+  "type": "array",
+  "label": "Biểu tượng mạng xã hội",
+  "properties": [{
+    "key": "type",
+    "type": "string",
+    "label": "Type",
+    "options": [{
+        "label": "Facebook",
+        "value": "facebook"
+      },
+      {
+        "label": "Twitter",
+        "value": "twitter"
+      },
+      {
+        "label": "Instagram",
+        "value": "instagram"
+      },
+      {
+        "label": "VK",
+        "value": "vk"
+      }
+    ]
+  }, {
+    "key": "url",
+    "type": "string",
+    "label": "Url"
+  }]
+}, {
+  "section": "Trang chủ",
+  "key": "home_slider",
+  "type": "array",
+  "label": "Ảnh trượt ngang",
+  "properties": [{
+    "key": "image",
+    "type": "image",
+    "label": "Ảnh"
+  }, {
+    "key": "title",
+    "type": "string",
+    "label": "Tiêu đề"
+  }, {
+    "key": "description",
+    "type": "string",
+    "label": "Mô tả"
+  }, {
+    "key": "path",
+    "type": "string",
+    "label": "Đường dẫn"
+  }]
+}, {
+  "section": "Trang chủ",
+  "key": "home_slider_color",
+  "type": "color",
+  "label": "Màu chữ trượt ngang"
+}, {
+  "section": "Footer",
+  "key": "footer_contacts",
+  "type": "array",
+  "label": "Liên hệ",
+  "properties": [{
+    "key": "text",
+    "type": "string",
+    "label": "Dòng hiển thị"
+  }]
+}, {
+  "section": "Header",
+  "key": "header_menu",
+  "type": "array",
+  "label": "Menu",
+  "properties": [{
+    "key": "text",
+    "type": "string",
+    "label": "Chữ hiển thị"
+  }, {
+    "key": "url",
+    "type": "string",
+    "label": "Đường dẫn"
+  }]
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "related_products_title",
+  "type": "string",
+  "label": "Tiêu đề sản phẩm liên quan"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "product_gallery_shownav",
+  "type": "boolean",
+  "label": "Hiển thị mũi tên điều hướng trong lưới ảnh"
+}, {
+  "section": "Trang chủ",
+  "key": "home_gallery_shownav",
+  "type": "boolean",
+  "label": "Hiển thị mũi tên điều hướng trong lưới ảnh"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "show_viewed_products",
+  "type": "boolean",
+  "label": "Hiển thị sản phẩm đã xem gần đây"
+}, {
+  "section": "Chi tiết sản phẩm",
+  "key": "limit_viewed_products",
+  "type": "number",
+  "label": "Số lượng sản phẩm đã xem gần đây"
+}, {
+  "section": "Trang",
+  "key": "page_list_tag",
+  "type": "string",
+  "label": "Tag để tạo danh sách trang (blog, news, articles or docs)"
+}]

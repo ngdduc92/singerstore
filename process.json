@@ -1,0 +1,33 @@
+{
+	"apps": [
+		{
+			"name": "shopservice",
+			"script": "./src/shopservice/server/index.js",
+			"node_args": "-r esm",
+			"watch": ["./config/server.js", "./src/shopservice/server/"],
+			"instances": "1",
+			"exec_mode": "fork",
+			"watch_options": {
+				"persistent": true,
+				"ignoreInitial": false
+			}
+		},
+		{
+			"name": "shopfront",
+			"script": "./dist/shopfront/server/index.js",
+			"node_args": "-r esm",
+			"watch": [
+				"./config/server.js",
+				"./dist/shopfront/",
+				"./theme/dist/",
+				"./theme/assets/index.html"
+			],
+			"instances": "1",
+			"exec_mode": "fork",
+			"watch_options": {
+				"persistent": true,
+				"ignoreInitial": false
+			}
+		}
+	]
+}
