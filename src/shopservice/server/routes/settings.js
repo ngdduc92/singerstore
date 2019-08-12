@@ -137,7 +137,7 @@ class SettingsRoute {
 		 *
 		 * @apiSuccessExample {json} Success response:
 		 *     HTTPS 304 Not Modified
-		 *     {"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from singerstore for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 60px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>"}
+		 *     {"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from eshop for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 60px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>"}
 		 *
 		 * @apiUse UnauthorizedError
 		 */
@@ -159,13 +159,13 @@ class SettingsRoute {
 		 * Request URL: http://localhost:3001/api/v1/settings/email/templates/tenant_registration
 		 *
 		 * @apiExample {js} Example request payload:
-		 *	{"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from singerstore for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 61px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>","templateName":"tenant_registration"}
+		 *	{"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from eshop for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 61px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>","templateName":"tenant_registration"}
 		 *
 		 * @apiSuccess (Success 200) {String} status Success code
 		 *
 		 * @apiSuccessExample {json} Success response:
 		 *     HTTPS 200 OK
-		 *     {"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from singerstore for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 61px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>"}
+		 *     {"tenant_id":"5cf64e61d6a06f3d3debbe82","deleted":false,"name":"tenant_registration","subject":"Tenant's account password from eshop for {{email}}","body":"<div> <div style=\"color: #202020; line-height: 1.5;\">       Your email address {{email}} was just used to request<br />a new password.       <div style=\"padding: 61px 0px;\">{{newPassword}}</div>    If this was not you, you can safely ignore this email.<br /><br />       Best,<br />       EShop Robot</div>"}
 		 *
 		 * @apiUse UnauthorizedError
 		 */

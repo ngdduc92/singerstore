@@ -1,4 +1,4 @@
-import APIClient from 'singerstore-api-client';
+import APIClient from 'eshop-client';
 import clientSettings from './settings';
 
 const api = new APIClient({

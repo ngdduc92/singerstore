@@ -69,6 +69,6 @@ app.get('/', (req, res) => {
 const server = app.listen(settings.shopListenPort, () => {
 	const serverAddress = server.address();
 	winston.info(
-		`singerstore UI server running at http://localhost:${serverAddress.port}`
+		`eShop UI server running at http://localhost:${serverAddress.port}`
 	);
 });

@@ -9,8 +9,6 @@ import orders from 'modules/orders/reducer';
 import orderStatuses from 'modules/orderStatuses/reducer';
 import pages from 'modules/pages/reducer';
 import settings from 'modules/settings/reducer';
-import apps from 'modules/apps/reducer';
-import files from 'modules/files/reducer';
 import tenants from 'modules/tenants/reducer';
 import users from 'modules/users/reducer';
 import discounts from 'modules/discounts/reducer';
@@ -26,8 +24,6 @@ export default combineReducers({
 	orders,
 	orderStatuses,
 	pages,
-	apps,
-	files,
 	tenants,
 	users,
 	discounts,

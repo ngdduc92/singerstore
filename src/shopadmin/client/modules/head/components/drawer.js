@@ -43,22 +43,12 @@ const drawer_pages = {
 	url: `/${tenantUrlName}/${locale}/admin/pages`,
 	icon: 'description'
 };
-const drawer_files = {
-	title: messages.files,
-	url: `/${tenantUrlName}/${locale}/admin/files`,
-	icon: 'folder'
-};
 const drawer_settings = {
 	title: messages.drawer_settings,
 	url:
 		`/${tenantUrlName}/${locale}/admin/settings` +
 		(role === roles.OWNER ? '/email' : ''),
 	icon: 'settings'
-};
-const drawer_apps = {
-	title: messages.apps,
-	url: `/${tenantUrlName}/${locale}/admin/apps`,
-	icon: 'apps'
 };
 const drawer_logout = {
 	title: messages.drawer_logout,
@@ -102,15 +92,9 @@ const menuItems = [
 	userScopes.includes(scopes.LIST_PRODUCT) && drawer_products,
 	userScopes.includes(scopes.LIST_ORDER) && drawer_orders,
 	userScopes.includes(scopes.LIST_CUSTOMER) && drawer_customers,
-	userScopes.includes(scopes.LIST_PAGE) &&
-		userScopes.includes(scopes.READ_PAGE) &&
-		userScopes.includes(scopes.WRITE_PAGE) &&
-		userScopes.includes(scopes.DELETE_PAGE) &&
-		drawer_pages,
-	userScopes.includes(scopes.LIST_FILE) && drawer_files,
+	userScopes.includes(scopes.READ_PAGE_SETTINGS) && drawer_pages,
 	userScopes.includes(scopes.LIST_DISCOUNT) && drawer_discounts,
 	userScopes.includes(scopes.READ_SETTINGS) && drawer_settings,
-	userScopes.includes(scopes.LIST_APP) && drawer_apps,
 	userScopes.includes(scopes.LIST_USER) && drawer_users,
 	userScopes.includes(scopes.READ_TENANT) && drawer_tenant_info,
 	userScopes.includes(scopes.READ_USER) && drawer_personal_info,

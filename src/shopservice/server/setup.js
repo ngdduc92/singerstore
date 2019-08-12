@@ -319,6 +319,7 @@ const addOwnerTenant = async (db, email) => {
 			await addThemeSettings(db, ownerTenant);
 			await addCategories(db, ownerTenant);
 			await addEmailSettings(db);
+			await addDiscountTypes(db, ownerTenant);
 		}
 	}
 };
@@ -330,11 +331,11 @@ const addSecurityKeys = async db => {
 		{
 			_id: ObjectID('5d2fe82801e69e0ac169ae9d'),
 			app_name: 'eShop Desktop',
-			app_id: 'singerstore.5d2fe82801e69e0ac169ae9d',
+			app_id: 'eshop.5d2fe82801e69e0ac169ae9d',
 			access_key: jwt.sign(
 				{
 					jti: '5d2fe82801e69e0ac169ae9d',
-					app_id: 'singerstore.5d2fe82801e69e0ac169ae9d'
+					app_id: 'eshop.5d2fe82801e69e0ac169ae9d'
 				},
 				settings.jwtSecretKey
 			),
@@ -346,11 +347,11 @@ const addSecurityKeys = async db => {
 		{
 			_id: ObjectID('5d2fe82801e69e0ac169ae9e'),
 			app_name: 'eShop Mobile',
-			app_id: 'singerstore.5d2fe82801e69e0ac169ae9e',
+			app_id: 'eshop.5d2fe82801e69e0ac169ae9e',
 			access_key: jwt.sign(
 				{
 					jti: '5d2fe82801e69e0ac169ae9e',
-					app_id: 'singerstore.5d2fe82801e69e0ac169ae9e'
+					app_id: 'eshop.5d2fe82801e69e0ac169ae9e'
 				},
 				settings.jwtSecretKey
 			),
@@ -576,7 +577,7 @@ const addSettings = async (db, { domain }) => {
 	await db.createCollection('orders');
 	await db.createCollection('discounts');
 
-	await addOwnerTenant(db, 'superuser@singerstore.com');
+	await addOwnerTenant(db, 'superuser@eshop.com');
 	await addSecurityKeys(db);
 
 	await createAllIndexes(db);

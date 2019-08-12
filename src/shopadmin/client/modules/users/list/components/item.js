@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Divider from 'material-ui/Divider';
-import messages from 'lib/text';
 import style from './style.css';
 import Checkbox from 'material-ui/Checkbox';
 import { ListItem } from 'material-ui/List';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const UserItem = ({ user, onSelect, selected, settings }) => {
 	let userClass = style.userName;
@@ -26,12 +27,16 @@ const UserItem = ({ user, onSelect, selected, settings }) => {
 							/>
 						</div>
 						<div className="col-xs-4">
-							<Link
-								to={`/${tenantUrlName}/${locale}/admin/users/${user.id}`}
-								className={userClass}
-							>
-								{user.email}
-							</Link>
+							{userScopes.includes(scopes.READ_USER) ? (
+								<Link
+									to={`/${tenantUrlName}/${locale}/admin/users/${user.id}`}
+									className={userClass}
+								>
+									{user.email}
+								</Link>
+							) : (
+								user.email
+							)}
 						</div>
 						<div className={'col-xs-4'}>{user.tel}</div>
 						<div className={'col-xs-3'}>{user.role}</div>

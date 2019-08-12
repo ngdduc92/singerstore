@@ -1,20 +1,19 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { TextField, SelectField, DatePicker } from 'redux-form-material-ui';
-
+import { TextField, SelectField } from 'redux-form-material-ui';
 import { CustomToggle } from 'modules/shared/form';
 import messages from 'lib/text';
 import style from './style.css';
 import data from 'lib/data';
-
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FontIcon from 'material-ui/FontIcon';
 import { List, ListItem } from 'material-ui/List';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 class GeneralSettings extends React.Component {
 	constructor(props) {
@@ -438,7 +437,11 @@ class GeneralSettings extends React.Component {
 							label={messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_GENERAL_SETTINGS) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

@@ -1,20 +1,18 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { TextField, SelectField } from 'redux-form-material-ui';
-
 import { CustomToggle } from 'modules/shared/form';
 import PaymentGateway from 'modules/settings/paymentGateway';
 import { AVAILABLE_PAYMENT_GATEWAYS } from 'modules/settings/paymentGateway/availablePaymentGateways';
 import SelectShippingMethodsField from './selectShipping.js';
 import messages from 'lib/text';
 import style from './style.css';
-
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
-import { List, ListItem } from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const validate = values => {
 	const errors = {};
@@ -197,7 +195,11 @@ class EditPaymentMethodForm extends React.Component {
 							label={isAdd ? messages.add : messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_PAYMENT_METHOD) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

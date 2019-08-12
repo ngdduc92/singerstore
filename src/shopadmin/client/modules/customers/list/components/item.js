@@ -4,9 +4,10 @@ import Checkbox from 'material-ui/Checkbox';
 import { ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
-import messages from 'lib/text';
 import * as helper from 'lib/helper';
 import style from './style.css';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 	const checked = selected.includes(customer.id);
@@ -32,14 +33,18 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 							/>
 						</div>
 						<div className="col-xs-4">
-							<Link
-								to={`/${tenantUrlName}/${locale}/admin/customer/${customer.id}`}
-								className={style.customerName}
-							>
-								{customer.email}
-								<br />
-								<small>{customer.group_name}</small>
-							</Link>
+							{userScopes.includes(scopes.READ_CUSTOMER) ? (
+								<Link
+									to={`/${tenantUrlName}/${locale}/admin/customer/${customer.id}`}
+									className={style.customerName}
+								>
+									{customer.email}
+									<br />
+									<small>{customer.group_name}</small>
+								</Link>
+							) : (
+								customer.email
+							)}
 						</div>
 						<div className={'col-xs-4 ' + style.location}>
 							{customer.shipping && customer.shipping.city && (

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextField, SelectField } from 'redux-form-material-ui';
-
+import { TextField } from 'redux-form-material-ui';
 import messages from 'lib/text';
 import style from './style.css';
-
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 class EmailTemplate extends React.Component {
 	constructor(props) {
@@ -54,7 +54,11 @@ class EmailTemplate extends React.Component {
 							label={messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_EMAIL_TEMPLATE) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

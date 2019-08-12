@@ -10,6 +10,8 @@ import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
 import { List, ListItem } from 'material-ui/List';
 import roles from 'lib/roles';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const getOrderStates = order => {
 	let states = [];
@@ -72,33 +74,40 @@ const CustomerOrder = ({ order, settings }) => {
 	const states = getOrderStates(order);
 	const tenantUrlName = location.pathname.split('/')[1];
 	const locale = location.pathname.split('/')[2];
+	const listItem = (
+		<ListItem
+			rightIcon={
+				<FontIcon className="material-icons">keyboard_arrow_right</FontIcon>
+			}
+			primaryText={
+				<div className="row">
+					<div className="col-xs-2">{order.number}</div>
+					<div className="col-xs-3" style={{ color: 'rgba(0, 0, 0, 0.4)' }}>
+						{dateCreatedFormated}
+					</div>
+					<div className="col-xs-4">
+						<div className={style.states}>{states}</div>
+					</div>
+					<div className="col-xs-3" style={{ textAlign: 'right' }}>
+						{grandTotalFormatted}
+					</div>
+				</div>
+			}
+		/>
+	);
 	return (
 		<div>
 			<Divider />
-			<Link
-				to={`/${tenantUrlName}/${locale}/admin/orders/${order.id}`}
-				style={{ textDecoration: 'none' }}
-			>
-				<ListItem
-					rightIcon={
-						<FontIcon className="material-icons">keyboard_arrow_right</FontIcon>
-					}
-					primaryText={
-						<div className="row">
-							<div className="col-xs-2">{order.number}</div>
-							<div className="col-xs-3" style={{ color: 'rgba(0, 0, 0, 0.4)' }}>
-								{dateCreatedFormated}
-							</div>
-							<div className="col-xs-4">
-								<div className={style.states}>{states}</div>
-							</div>
-							<div className="col-xs-3" style={{ textAlign: 'right' }}>
-								{grandTotalFormatted}
-							</div>
-						</div>
-					}
-				/>
-			</Link>
+			{userScopes.includes(scopes.READ_ORDER) ? (
+				<Link
+					to={`/${tenantUrlName}/${locale}/admin/orders/${order.id}`}
+					style={{ textDecoration: 'none' }}
+				>
+					{listItem}
+				</Link>
+			) : (
+				listItem
+			)}
 		</div>
 	);
 };

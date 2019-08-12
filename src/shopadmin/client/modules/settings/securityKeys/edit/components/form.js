@@ -1,14 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { TextField } from 'redux-form-material-ui';
-
 import messages from 'lib/text';
 import style from './style.css';
 import ConfirmationDialog from 'modules/shared/confirmation';
-
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const validate = values => {
 	const errors = {};
@@ -108,6 +107,7 @@ class EditApiKeyForm extends React.Component {
 									secondary={true}
 									style={{ float: 'left' }}
 									onClick={this.handleRevoke}
+									disabled={!userScopes.includes(scopes.WRITE_API_KEY)}
 								/>
 							)}
 							<RaisedButton
@@ -115,7 +115,11 @@ class EditApiKeyForm extends React.Component {
 								label={isAdd ? messages.settings_generateApiKey : messages.save}
 								primary={true}
 								className={style.button}
-								disabled={pristine || submitting}
+								disabled={
+									!userScopes.includes(scopes.WRITE_API_KEY) ||
+									pristine ||
+									submitting
+								}
 							/>
 						</div>
 					</Paper>

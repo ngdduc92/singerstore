@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
@@ -6,6 +6,8 @@ import messages from 'lib/text';
 import * as helper from 'lib/helper';
 import style from './style.css';
 import Checkbox from 'material-ui/Checkbox';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const THUMBNAIL_WIDTH = 100;
 const ImagePlaceholder = (
@@ -107,14 +109,22 @@ const ProductItem = ({ product, onSelect, selected, settings }) => {
 							</div>
 						</div>
 						<div className="col-xs-8">
-							<Link
-								to={`/${tenantUrlName}/${locale}/admin/products/${product.id}`}
-								className={productClass}
-							>
-								{productName}
-								<br />
-								<small>{product.category_name}</small>
-							</Link>
+							{userScopes.includes(scopes.READ_PRODUCT) ? (
+								<Link
+									to={`/${tenantUrlName}/${locale}/admin/products/${product.id}`}
+									className={productClass}
+								>
+									{productName}
+									<br />
+									<small>{product.category_name}</small>
+								</Link>
+							) : (
+								<Fragment>
+									{productName}
+									<br />
+									<small>{product.category_name}</small>
+								</Fragment>
+							)}
 						</div>
 					</div>
 				</div>

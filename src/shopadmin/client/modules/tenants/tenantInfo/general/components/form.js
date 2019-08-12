@@ -7,6 +7,8 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { CustomToggle } from 'modules/shared/form';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const validate = values => {
 	const errors = {};
@@ -89,7 +91,11 @@ const TenantGeneralForm = ({
 							label={messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_TENANT) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

@@ -19,8 +19,6 @@ import PageListHead from 'modules/pages/list/head';
 import ApiKeyListHead from 'modules/settings/securityKeys/list/head';
 import WebhooksListHead from 'modules/settings/webhooks/list/head';
 import WebhooksEditHead from 'modules/settings/webhooks/edit/head';
-import AppsHead from 'modules/apps/head';
-import FileListHead from 'modules/files/list/head';
 import DrawerMenu from './drawer';
 import FontIcon from 'material-ui/FontIcon';
 import AppBar from 'material-ui/AppBar';
@@ -337,9 +335,6 @@ export default class AppBarTop extends React.Component {
 				`/${tenantUrlName}/${locale}/admin/pages`
 			);
 			rightElements = <PageHead />;
-		} else if (pathname === `/${tenantUrlName}/${locale}/admin/files`) {
-			title = messages.files;
-			rightElements = <FileListHead />;
 		} else if (
 			pathname === `/${tenantUrlName}/${locale}/admin/settings/apikeys`
 		) {
@@ -352,7 +347,9 @@ export default class AppBarTop extends React.Component {
 			leftButton = this.getLeftButton(
 				`/${tenantUrlName}/${locale}/admin/settings/apikeys`
 			);
-		} else if (pathname.startsWith('/admin/settings/apikeys/')) {
+		} else if (
+			pathname.startsWith(`/${tenantUrlName}/${locale}/admin/settings/apikeys/`)
+		) {
 			title = messages.settings_editApiKey;
 			leftButton = this.getLeftButton(
 				`/${tenantUrlName}/${locale}/admin/settings/apikeys`
@@ -379,22 +376,6 @@ export default class AppBarTop extends React.Component {
 				`/${tenantUrlName}/${locale}/admin/settings/webhooks`
 			);
 			rightElements = <WebhooksEditHead />;
-		} else if (pathname === `/${tenantUrlName}/${locale}/admin/apps`) {
-			title = messages.apps;
-			rightElements = <AppsHead />;
-		} else if (pathname === `/${tenantUrlName}/${locale}/admin/apps/login`) {
-			title = messages.loginTitle;
-			rightElements = <AppsHead />;
-			leftButton = this.getLeftButton(`/${tenantUrlName}/${locale}/admin/apps`);
-		} else if (pathname === `/${tenantUrlName}/${locale}/admin/apps/account`) {
-			title = messages.account;
-			leftButton = this.getLeftButton(`/${tenantUrlName}/${locale}/admin/apps`);
-		} else if (
-			pathname.startsWith(`/${tenantUrlName}/${locale}/admin/apps/service/`) ||
-			pathname.startsWith(`/${tenantUrlName}/${locale}/admin/apps/app/`)
-		) {
-			title = messages.apps;
-			leftButton = this.getLeftButton(`/${tenantUrlName}/${locale}/admin/apps`);
 		} else if (pathname === `/${tenantUrlName}/${locale}/admin/tenants`) {
 			title = messages.tenants_title;
 			if (tenantsSelectedCount > 0) {

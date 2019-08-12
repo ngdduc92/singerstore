@@ -1,8 +1,6 @@
 import * as t from './actionTypes';
 
 const initialState = {
-	exportInProcess: false,
-	installInProcess: false,
 	settings: {
 		language: 'en',
 		currency_code: 'USD',
@@ -39,14 +37,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case t.THEME_EXPORT_REQUEST:
-			return Object.assign({}, state, { exportInProcess: true });
-		case t.THEME_EXPORT_RECEIVE:
-			return Object.assign({}, state, { exportInProcess: false });
-		case t.THEME_INSTALL_REQUEST:
-			return Object.assign({}, state, { installInProcess: true });
-		case t.THEME_INSTALL_RECEIVE:
-			return Object.assign({}, state, { installInProcess: false });
 		case t.SETTINGS_RECEIVE:
 			return Object.assign({}, state, { settings: action.settings });
 		case t.EMAIL_SETTINGS_RECEIVE:

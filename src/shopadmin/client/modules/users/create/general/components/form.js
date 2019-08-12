@@ -6,8 +6,9 @@ import style from './style.css';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import { CustomToggle } from 'modules/shared/form';
 import RoleMenuItems from 'modules/shared/roleMenuItems';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const validate = values => {
 	const errors = {};
@@ -122,7 +123,11 @@ class UserCreateGeneralForm extends React.Component {
 							label={messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_USER) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

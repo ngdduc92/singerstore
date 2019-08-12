@@ -68,7 +68,7 @@ class PaymentGatewaysRoute {
 	}
 
 	getGateway(req, res, next) {
-		PaymentGatewaysService.getGateway(req.params.name)
+		PaymentGatewaysService.getGateway(req.get('x-tenant-id'), req.params.name)
 			.then(data => {
 				res.send(data);
 			})
@@ -76,7 +76,11 @@ class PaymentGatewaysRoute {
 	}
 
 	updateGateway(req, res, next) {
-		PaymentGatewaysService.updateGateway(req.params.name, req.body)
+		PaymentGatewaysService.updateGateway(
+			req.get('x-tenant-id'),
+			req.params.name,
+			req.body
+		)
 			.then(data => {
 				res.send(data);
 			})

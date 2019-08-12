@@ -16,8 +16,6 @@ import OrderStatuses from 'routes/orders/statuses';
 import Pages from 'routes/pages';
 import PagesDetails from 'routes/pages/edit';
 import Settings from 'routes/settings';
-import Apps from 'routes/apps';
-import Files from 'routes/files';
 import Tenants from 'routes/tenants';
 import TenantDetails from 'routes/tenants/edit';
 import TenantNew from 'routes/tenants/create';
@@ -145,16 +143,13 @@ export default () => (
 								component={Auth(ProductDetails)}
 							/>
 						)}
-						{userScopes.includes(scopes.LIST_PAGE) &&
-							userScopes.includes(scopes.READ_PAGE) &&
-							userScopes.includes(scopes.WRITE_PAGE) &&
-							userScopes.includes(scopes.DELETE_PAGE) && (
-								<Route
-									path="/:tenantUrlName/:locale/admin/pages"
-									exact
-									component={Auth(Pages)}
-								/>
-							)}
+						{userScopes.includes(scopes.READ_PAGE_SETTINGS) && (
+							<Route
+								path="/:tenantUrlName/:locale/admin/pages"
+								exact
+								component={Auth(Pages)}
+							/>
+						)}
 						{userScopes.includes(scopes.WRITE_PAGE) && (
 							<Route
 								path="/:tenantUrlName/:locale/admin/pages/add"
@@ -173,20 +168,6 @@ export default () => (
 							<Route
 								path="/:tenantUrlName/:locale/admin/settings"
 								component={Auth(Settings)}
-							/>
-						)}
-						{userScopes.includes(scopes.LIST_APP) && (
-							<Route
-								path="/:tenantUrlName/:locale/admin/apps"
-								exact
-								component={Auth(Apps)}
-							/>
-						)}
-						{userScopes.includes(scopes.LIST_FILE) && (
-							<Route
-								path="/:tenantUrlName/:locale/admin/files"
-								exact
-								component={Auth(Files)}
 							/>
 						)}
 						{userScopes.includes(scopes.LIST_TENANT) && (

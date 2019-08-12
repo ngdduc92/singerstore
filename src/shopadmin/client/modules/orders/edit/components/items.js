@@ -233,13 +233,15 @@ export class OrderItem extends React.Component {
 						)}
 					</div>
 					<div className={style.itemName + ' col-xs-4'}>
-						<Link
-							to={`/${tenantUrlName}/${locale}/admin/products/${
-								item.product_id
-							}`}
-						>
-							{item.name}
-						</Link>
+						{userScopes.includes(scopes.READ_PRODUCT) ? (
+							<Link
+								to={`/${tenantUrlName}/${locale}/admin/products/${item.product_id}`}
+							>
+								{item.name}
+							</Link>
+						) : (
+							item.name
+						)}
 						<div>{item.variant_name}</div>
 						<div>
 							{messages.products_sku}: {item.sku}

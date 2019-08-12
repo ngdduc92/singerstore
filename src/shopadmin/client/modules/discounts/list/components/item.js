@@ -7,6 +7,8 @@ import style from './style.css';
 import Checkbox from 'material-ui/Checkbox';
 import { ListItem } from 'material-ui/List';
 import { types_array } from 'lib/discountTypes';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const DiscountItem = ({ discount, onSelect, selected, settings }) => {
 	let discountClass = style.discountCode;
@@ -37,14 +39,16 @@ const DiscountItem = ({ discount, onSelect, selected, settings }) => {
 							/>
 						</div>
 						<div className="col-xs-5">
-							<Link
-								to={`/${tenantUrlName}/${locale}/admin/discounts/${
-									discount.id
-								}`}
-								className={discountClass}
-							>
-								{discountCode}
-							</Link>
+							{userScopes.includes(scopes.READ_DISCOUNT) ? (
+								<Link
+									to={`/${tenantUrlName}/${locale}/admin/discounts/${discount.id}`}
+									className={discountClass}
+								>
+									{discountCode}
+								</Link>
+							) : (
+								discountCode
+							)}
 						</div>
 						<div className={'col-xs-3'}>
 							{helper.getTypeLabel(discount.type, types_array)}

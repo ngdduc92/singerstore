@@ -1,12 +1,10 @@
 import messages from 'lib/text';
 import settings from 'lib/settings';
-import { installReceive } from 'modules/settings/actions';
 import { fetchOrders } from 'modules/orders/actions';
 import utils from '../../../shopfront/shared/lib/utils';
 
 const AUTO_RECONNECT_INTERVAL = 1000; //1 seconds
 const ORDER_CREATED = 'order.created';
-const THEME_INSTALLED = 'theme.installed';
 let store = null;
 
 export const connectToWebSocket = reduxStore => {
@@ -75,11 +73,6 @@ const showNotification = (title, body, requireInteraction = false) => {
 
 const eventHandler = ({ event, payload }) => {
 	switch (event) {
-		case THEME_INSTALLED:
-			const fileName = payload;
-			store.dispatch(installReceive());
-			showNotification(messages.settings_theme, messages.themeInstalled);
-			break;
 		case ORDER_CREATED:
 			const order = payload;
 			store.dispatch(fetchOrders());

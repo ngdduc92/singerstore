@@ -12,6 +12,7 @@ const getOptions = (tenantId, orderId) => {
 	]).then(([order, settings]) => {
 		if (order && order.payment_method_id) {
 			return PaymentGatewaysService.getGateway(
+				tenantId,
 				order.payment_method_gateway
 			).then(gatewaySettings => {
 				const options = {
@@ -45,23 +46,25 @@ const getPaymentFormSettings = (tenantId, orderId) => {
 
 const paymentNotification = (req, res, gateway) => {
 	const tenantId = req.get('x-tenant-id');
-	return PaymentGatewaysService.getGateway(gateway).then(gatewaySettings => {
-		const options = {
-			gateway: gateway,
-			gatewaySettings: gatewaySettings,
-			req: req,
-			res: res
-		};
+	return PaymentGatewaysService.getGateway(tenantId, gateway).then(
+		gatewaySettings => {
+			const options = {
+				gateway: gateway,
+				gatewaySettings: gatewaySettings,
+				req: req,
+				res: res
+			};
 
-		switch (gateway) {
-			case 'paypal-checkout':
-				return PayPalCheckout.paymentNotification(tenantId, options);
-			case 'liqpay':
-				return LiqPay.paymentNotification(tenantId, options);
-			default:
-				return Promise.reject('Invalid gateway');
+			switch (gateway) {
+				case 'paypal-checkout':
+					return PayPalCheckout.paymentNotification(tenantId, options);
+				case 'liqpay':
+					return LiqPay.paymentNotification(tenantId, options);
+				default:
+					return Promise.reject('Invalid gateway');
+			}
 		}
-	});
+	);
 };
 
 const processOrderPayment = async (tenantId, order) => {
@@ -71,7 +74,10 @@ const processOrderPayment = async (tenantId, order) => {
 	}
 
 	const gateway = order.payment_method_gateway;
-	const gatewaySettings = await PaymentGatewaysService.getGateway(gateway);
+	const gatewaySettings = await PaymentGatewaysService.getGateway(
+		tenantId,
+		gateway
+	);
 	const settings = await SettingsService.getSettings(tenantId);
 
 	switch (gateway) {

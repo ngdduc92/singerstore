@@ -5,30 +5,6 @@ import * as helper from 'lib/helper';
 import scopes from 'lib/scopes';
 import userScopes from 'lib/userScopes';
 
-export function exportRequest() {
-	return {
-		type: t.THEME_EXPORT_REQUEST
-	};
-}
-
-export function exportReceive() {
-	return {
-		type: t.THEME_EXPORT_RECEIVE
-	};
-}
-
-export function installRequest() {
-	return {
-		type: t.THEME_INSTALL_REQUEST
-	};
-}
-
-export function installReceive() {
-	return {
-		type: t.THEME_INSTALL_RECEIVE
-	};
-}
-
 function receiveSettings(settings) {
 	return {
 		type: t.SETTINGS_RECEIVE,

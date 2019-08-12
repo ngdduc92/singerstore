@@ -1,14 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { TextField } from 'redux-form-material-ui';
-
 import messages from 'lib/text';
 import style from './style.css';
 import { CustomToggle, MultiSelect } from 'modules/shared/form';
-
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const WEBHOOK_EVENTS = [
 	'order.created',
@@ -107,7 +106,11 @@ class EditWebhookForm extends React.Component {
 								label={isAdd ? messages.add : messages.save}
 								primary={true}
 								className={style.button}
-								disabled={pristine || submitting}
+								disabled={
+									!userScopes.includes(scopes.WRITE_WEBHOOK) ||
+									pristine ||
+									submitting
+								}
 							/>
 						</div>
 					</Paper>

@@ -149,26 +149,6 @@ function errorCreateDiscount(error) {
 	};
 }
 
-function requestDiscountTypes() {
-	return {
-		type: t.DISCOUNT_TYPES_REQUEST
-	};
-}
-
-function receiveDiscountTypes({ data }) {
-	return {
-		type: t.DISCOUNT_TYPES_RECEIVE,
-		data
-	};
-}
-
-function receiveDiscountTypesError(error) {
-	return {
-		type: t.DISCOUNT_TYPES_FAILURE,
-		error
-	};
-}
-
 const getFilter = (state, offset = 0) => {
 	const searchTerm = state.discounts.filter.search;
 

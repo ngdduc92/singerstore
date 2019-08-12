@@ -1,15 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { TextField, SelectField } from 'redux-form-material-ui';
-
+import { TextField } from 'redux-form-material-ui';
 import messages from 'lib/text';
 import style from './style.css';
-
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import Divider from 'material-ui/Divider';
-import FontIcon from 'material-ui/FontIcon';
-import { List, ListItem } from 'material-ui/List';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 class EmailSettings extends React.Component {
 	constructor(props) {
@@ -93,7 +90,11 @@ class EmailSettings extends React.Component {
 							label={messages.save}
 							primary={true}
 							className={style.button}
-							disabled={pristine || submitting}
+							disabled={
+								!userScopes.includes(scopes.WRITE_SMTP) ||
+								pristine ||
+								submitting
+							}
 						/>
 					</div>
 				</Paper>

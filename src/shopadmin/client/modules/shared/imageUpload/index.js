@@ -18,10 +18,12 @@ export default class ImageUpload extends React.Component {
 	}
 
 	onDelete = () => {
-		this.setState({
-			imagePreview: null
-		});
-		this.props.onDelete();
+		if (this.props.onDelete) {
+			this.setState({
+				imagePreview: null
+			});
+			this.props.onDelete();
+		}
 	};
 
 	componentWillReceiveProps(nextProps) {

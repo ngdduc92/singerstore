@@ -25,7 +25,7 @@ class TenantsRoute {
 		 *
 		 * @apiSuccessExample {json} Success response:
 		 *     HTTPS 304 Not Modified
-		 *     {"data":[{"deleted":false,"is_revoked":false,"date_created":"2019-06-04T10:56:33.392Z","date_updated":"2019-06-04T10:56:33.392Z","name":"Owner Organization","url_name":"dashboard","email":"superuser@singerstore.com","id":"5cf64e61d6a06f3d3debbe82"},{"date_created":"2019-06-04T11:12:11.462Z","date_updated":"2019-06-04T11:12:21.398Z","deleted":false,"address":"123 DN","email":"tuan.le@evizi.com","name":"blueshop","tel":"0909090909","url_name":"blueshop","id":"5cf6520b5407a83e20be98b9"}]}
+		 *     {"data":[{"deleted":false,"is_revoked":false,"date_created":"2019-06-04T10:56:33.392Z","date_updated":"2019-06-04T10:56:33.392Z","name":"Owner Organization","url_name":"dashboard","email":"superuser@eshop.com","id":"5cf64e61d6a06f3d3debbe82"},{"date_created":"2019-06-04T11:12:11.462Z","date_updated":"2019-06-04T11:12:21.398Z","deleted":false,"address":"123 DN","email":"tuan.le@evizi.com","name":"blueshop","tel":"0909090909","url_name":"blueshop","id":"5cf6520b5407a83e20be98b9"}]}
 		 *
 		 * @apiUse UnauthorizedError
 		 */

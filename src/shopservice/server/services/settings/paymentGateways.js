@@ -1,25 +1,34 @@
 import { db } from '../../lib/mongo';
+import parse from '../../lib/parse';
 
 class PaymentGatewaysService {
 	constructor() {}
 
-	getGateway(gatewayName) {
+	getGateway(tenantId, gatewayName) {
 		return db
 			.collection('paymentGateways')
-			.findOne({ name: gatewayName })
+			.findOne({
+				name: gatewayName,
+				tenant_id: parse.getObjectIDIfValid(tenantId)
+			})
 			.then(data => {
 				return this.changeProperties(data);
 			});
 	}
 
-	updateGateway(gatewayName, data) {
+	updateGateway(tenantId, gatewayName, data) {
 		if (Object.keys(data).length === 0) {
-			return this.getGateway(gatewayName);
+			return this.getGateway(tenantId, gatewayName);
 		} else {
+			data.tenant_id = parse.getObjectIDIfValid(tenantId);
 			return db
 				.collection('paymentGateways')
-				.updateOne({ name: gatewayName }, { $set: data }, { upsert: true })
-				.then(res => this.getGateway(gatewayName));
+				.updateOne(
+					{ name: gatewayName, tenant_id: parse.getObjectIDIfValid(tenantId) },
+					{ $set: data },
+					{ upsert: true }
+				)
+				.then(res => this.getGateway(tenantId, gatewayName));
 		}
 	}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Checkbox from 'material-ui/Checkbox';
 import { ListItem } from 'material-ui/List';
@@ -8,6 +8,8 @@ import messages from 'lib/text';
 import * as helper from 'lib/helper';
 import style from './style.css';
 import moment from 'moment';
+import scopes from 'lib/scopes';
+import userScopes from 'lib/userScopes';
 
 const getOrderStateIcons = order => {
 	let icons = [];
@@ -121,14 +123,22 @@ const OrdersListItem = ({ order, onSelect, selected, settings }) => {
 						</div>
 						<div className="col-xs-1">{stateIcons}</div>
 						<div className="col-xs-2">
-							<Link
-								to={`/${tenantUrlName}/${locale}/admin/orders/${order.id}`}
-								className={style.number}
-							>
-								{order.number || 0}
-							</Link>
-							<br />
-							<small className={style.small}>{dateCreatedFromNow}</small>
+							{userScopes.includes(scopes.READ_ORDER) ? (
+								<Link
+									to={`/${tenantUrlName}/${locale}/admin/orders/${order.id}`}
+									className={style.number}
+								>
+									{order.number || 0}
+									<br />
+									<small className={style.small}>{dateCreatedFromNow}</small>
+								</Link>
+							) : (
+								<Fragment>
+									{order.number || 0}
+									<br />
+									<small className={style.small}>{dateCreatedFromNow}</small>
+								</Fragment>
+							)}
 						</div>
 						<div className="col-xs-4">
 							<div className={style.shipping}>{shippingTo}</div>
